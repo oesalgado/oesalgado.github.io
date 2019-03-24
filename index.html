@@ -136,7 +136,7 @@
 
 		<div id="myBar"></div>
 		<p id="sandwhichCount"></p>
-		<b><p id="test"></p></b>
+		<p id="test"></p>
 
 		<script>
 			
@@ -169,7 +169,7 @@
 		var usd = document.getElementById("usd2Convert").value;
 		var sandwhiches = Math.floor(usd / 3.39);
 		var difference = (3.39 - usd);
-		var sid, testA;
+		var sid, testA, testB;
 		var youCanBuy = " you can literally buy ";
 
 		//if else
@@ -184,8 +184,9 @@
 		testA = "And when you do the math: ";
 		testB = "That's literally " + (sandwhiches * 28) + " grams of Protein you're throwing in the trash.";
 
-		document.getElementById("sandwhichCount").innerHTML = "With $" + usd + youCanBuy + sid + " instead.";
-		document.getElementById("test").innerHTML = testA + testB.bold();
+
+		document.getElementById("sandwhichCount").innerHTML = "With " + "$".bold() + usd.bold() + youCanBuy + sid.bold() + " instead.";
+		document.getElementById("test").innerHTML = testA + (testB.bold()).fontcolor("red");
 	}
 		
 
