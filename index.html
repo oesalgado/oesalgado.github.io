@@ -268,13 +268,29 @@
 			var i = 0;
 			limit = sandwhiches;
 	
+
 			function emojiLoop(){
+			do {
+
+				if(i < 403){
+
+				text += "🥪 ";
+				i++;
+				}
+				else{
+					limit = 20;
+				}
+				}
+			while (i < limit);
+			}
+
+/*			function emojiLoop(){
 			do {
 				text += "🥪 ";
 				i++;
 				}
 			while (i < limit);
-			}
+			}*/
 
 		emojiLoop();
 
