@@ -82,10 +82,10 @@
 			sid = "If you save up $" + difference + " more you can buy a Chick-Fil-A sandwhich instead."; 
 		}
 
-		testA = (sandwhiches * 28) + " grams of Protein.";
+		testA = "And when you do the math: That's literally "(sandwhiches * 28) + " grams of Protein you're throwing in the trash.";
 
 		document.getElementById("sandwhichCount").innerHTML = "With $" + usd + youCanBuy + sid;
-		document.getElementById("test").innerHTML = testA;
+		document.getElementById("test").innerHTML = testA.bold();
 	}
 		
 
