@@ -27,6 +27,7 @@
 
 .footer-left{
   position: absolute;
+  padding-bottom: 4%;
   bottom: 0;
 }
 
@@ -133,7 +134,7 @@
 
 		<!--<label>$</label>-->
 
-		<input class="currencyInput" type="number" required="required" data-type="currency" id="usd2Convert" placeholder="Enter amount in USD">
+		<input class="currencyInput" type="number" required="required" data-type="currency" pattern="[0-9]*" id="usd2Convert" placeholder="Enter amount in USD">
 
 		<button class="inputButton" onclick="timedText()">Calculate Investment</button>
 	
