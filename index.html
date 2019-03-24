@@ -1,21 +1,115 @@
 <!DOCTYPE html>
 <html>
-<style>
+
+<head>
+	<!--so meta-->
+	<link rel="stylesheet" href="https://use.typekit.net/jdp8xhp.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="og:type" content="website">
+	<title></title>
+</head>
+
+<style type="text/css">
 #myProgress {
-  width: 100%;
+  width: 80%;
   background-color: #ddd;
 }
 
 #myBar {
   width: 1%;
   height: 30px;
-  background-color: #4CAF50;
+  background-color: #21ce99;
 }
+
+.landing{
+	width: 80%;
+	position: absolute;
+	padding: 10%;
+	font-family: objektiv-mk1, sans-serif; 
+	font-style: normal; 
+}
+
+.currencyInput{
+	 background: transparent;
+	 border: none;
+	 border-bottom: 1px solid #000;
+	 padding: 10px 11px 11px 11px;
+  	 box-sizing: 
+}
+
+/*.currencyInput input {
+	padding: 10px 11px 11px 11px;
+    border: 0;
+}*/
+
+.inputButton {
+	 padding: 10px 11px 11px 11px;
+	 font-family: objektiv-mk1, sans-serif; 
+	 font-style: normal;
+	 color: white;
+	 background-color: #21ce99;
+	 margin-top: 5px;
+	 border: 0;
+}
+
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+
+  .inputButton {
+  	width: 100%;
+	padding: 10px 11px 11px 11px;
+}
+
+	.currencyInput{
+	width: 100%;
+	 background: transparent;
+	 border: none;
+	 border-bottom: 1px solid #000;
+	 padding: 10px 11px 11px 11px;
+	 margin: 0;
+  	box-sizing: border-box; 
+}
+	/*
+	.currencyInput input {
+
+	padding: 10px 11px 11px 11px;
+    border: 0;
+}*/
+
+  .right {
+    width: 100%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+
+  .inputButton {
+  	width: 100%;
+	padding: 10px 11px 11px 11px;
+}
+
+	.currencyInput{
+	width: 100%;
+	 border: 1px inset #ccc;
+	 padding: 10px 11px 11px 11px;
+}
+
 </style>
-<head>
-	<title></title>
-</head>
+
 <body>
+
+	<div class="landing">
 
 	<div class="header">
 		<h1>Financial Decision Calculator</h1>
@@ -28,11 +122,12 @@
 	<div class="calculator">
 		<h3>Type in the amount of money you're looking to invest:</h3>
 
-		<label>$</label>
-		<input type="number" id="usd2Convert" placeholder="Enter amount in USD">
+		<!--<label>$</label>-->
 
-		<button onclick="timedText()">Calculate Investment</button>
-		
+		<input class="currencyInput" type="number" required="required" data-type="currency" id="usd2Convert" placeholder="Enter amount in USD">
+
+		<button class="inputButton" onclick="timedText()">Calculate Investment</button>
+	
 		<hr>
 
 		<div id="myBar"></div>
@@ -69,23 +164,23 @@
 			function usd2Sandwhiches() {
 		var usd = document.getElementById("usd2Convert").value;
 		var sandwhiches = Math.floor(usd / 3.39);
-		var difference = (3.99 - usd);
+		var difference = (3.39 - usd);
 		var sid, testA;
 		var youCanBuy = " you can literally buy ";
 
 		//if else
 		if(sandwhiches == 1){
-			sid = sandwhiches + " a Chick-Fil-A sandwhich.";
+			sid = sandwhiches + " a Chick-Fil-A sandwhich";
 		} else if(sandwhiches > 1){
-			sid = sandwhiches + " Chick-Fil-A sandwhiches.";
+			sid = sandwhiches + " Chick-Fil-A sandwhiches";
 		} else {
-			sid = "If you save up $" + difference + " more you can buy a Chick-Fil-A sandwhich instead."; 
+			sid = "If you save up $" + difference + " more you can buy a Chick-Fil-A sandwhich"; 
 		}
 
 		testA = "And when you do the math: That's literally " + (sandwhiches * 28) + " grams of Protein you're throwing in the trash.";
 
 		document.getElementById("sandwhichCount").innerHTML = "With $" + usd + youCanBuy + sid + " instead.";
-		document.getElementById("test").innerHTML = testA;
+		document.getElementById("test").innerHTML = testA.bold();
 	}
 		
 
@@ -117,9 +212,13 @@
 
 	  <footer id="footer">
   <div class="footer-left">
-    Copyright &copy; 2019 @oesalgado
+    Copyright &copy; 2019 <a href="https://www.oesalgado.com/">@oesalgado</a>
   </div>
 
+</footer>
+
+<!-- landing Div --->
+</div>
 	
 </body>
 </html>
