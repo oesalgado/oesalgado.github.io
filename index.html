@@ -10,7 +10,11 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta property="og:type" content="website">
-	<title></title>
+
+	<meta property="og:title" content="Should I Really Buy This? | Financial Decision Calculator"/>
+    <meta name="description" content="Are you looking to make a major purchase or investment but not sure if it's a good long-term decision? This calculator assesses
+    your situation to determine whether or not you're making the right choice."/>
+	<title>Should I Really Buy This? | Financial Decision Calculator</title>
 </head>
 
 <style type="text/css">
@@ -34,7 +38,7 @@
 }
 
 .footer-left{
-  position: fixed;
+  position: absolute;
   padding-bottom: 4%;
   bottom: 0;
   font-size: 12px;
@@ -175,12 +179,24 @@
 
 		<div id="myBar"></div>
 		<p id="sandwhichCount"></p>
+		<p id="emoji-counter"> </p>
 		<p id="test"></p>
 
 		</div>
 
 		<script>
 			
+			const emojiTrigger = document.getElementById('emoji-counter');
+
+			emojiTrigger.addEventListener('emojiCounter', function (event) {
+
+				emojiTrigger.textContent = event.detail.number;
+
+				alert('')
+			});
+
+
+
 			function timedText() {
 			calculation()
 
@@ -234,6 +250,24 @@
 		var sid2 = currencyFormat(sid);
 		var testC = currencyFormat(testB);
 
+		//Here is the emoji counter
+			var text = "";
+			var i = 0;
+			limit = sandwhiches;
+	
+			function emojiLoop(){
+			do {
+				text += "🥪 ";
+				i++;
+				}
+			while (i < limit);
+			}
+
+		emojiLoop();
+
+		document.getElementById("emoji-counter").innerHTML = text;
+
+
 		function saltyMessage(){
 			document.getElementById("salty").innerHTML = "Do you really want to live in a world where you are being that wasteful?";
 			}
@@ -273,6 +307,8 @@
 		</script>
 
 	<br><p id="salty"></p><br>
+
+	<br><p id="emoji-counter"></p>
 
 
 	<br>
