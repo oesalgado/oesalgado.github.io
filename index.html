@@ -123,7 +123,7 @@
 
 	<div class="header">
 		<h1>Financial Decision Calculator</h1>
-		<h6>ver. 1.00</h6>
+		<h6>ver. 1.02</h6>
 
 		<p>This calculator is primarily made for college students looking to make a major financial decision and assesses whether or not it might be the most optimal choice.</p>
 
@@ -190,9 +190,26 @@
 		testA = "And when you do the math: ";
 		testB = "That's literally " + (sandwhiches * 28) + " grams of Protein you're throwing in the trash.";
 
+		//Comma formatting
+		function currencyFormat(number) {
+ 		 return number.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+		}
+		
+		var usdFormatted = currencyFormat(usd);
+		var sid2 = currencyFormat(sid);
+		var testC = currencyFormat(testB);
 
-		document.getElementById("sandwhichCount").innerHTML = "With " + "$".bold() + usd.bold() + youCanBuy + sid.bold() + " instead.";
-		document.getElementById("test").innerHTML = testA + (testB.bold()).fontcolor("red");
+		function saltyMessage(){
+			document.getElementById("salty").innerHTML = "Do you really want to live in a world where you are being that wasteful?";
+			}
+			setTimeout(saltyMessage, 5000);
+
+
+		/*document.getElementById("sandwhichCount").innerHTML = "With " + "$".bold() + usd.bold() + youCanBuy + sid.bold() + " instead.";
+		document.getElementById("test").innerHTML = testA + (testB.bold()).fontcolor("red");*/
+
+		document.getElementById("sandwhichCount").innerHTML = "With " + "$".bold() + usdFormatted.bold() + youCanBuy + sid2.bold() + " instead.";
+		document.getElementById("test").innerHTML = testA + (testC.bold()).fontcolor("red");
 	}
 		
 
@@ -219,6 +236,8 @@
 		document.getElementById("test").innerHTML = testA;
 	}*/
 		</script>
+
+	<br><p id="salty"></p>
 
 	</div>
 
