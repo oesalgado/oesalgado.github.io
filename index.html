@@ -225,21 +225,9 @@
 			function usd2Sandwhiches() {
 		var usd = document.getElementById("usd2Convert").value;
 		var sandwhiches = Math.floor(usd / 3.39);
-		var difference = (3.39 - usd);
+		var difference = Math.round((3.39 - usd)*100)/100;
 		var sid, testA, testB;
 		var youCanBuy = " you can literally buy ";
-
-		//if else
-		if(sandwhiches == 1){
-			sid = sandwhiches + " a Chick-Fil-A sandwhich";
-		} else if(sandwhiches > 1){
-			sid = sandwhiches + " Chick-Fil-A sandwhiches";
-		} else {
-			sid = "If you save up $" + difference + " more you can buy a Chick-Fil-A sandwhich"; 
-		}
-
-		testA = "And when you do the math: ";
-		testB = "That's literally " + (sandwhiches * 28) + " grams of Protein you're throwing away in the trash.";
 
 		//Comma formatting
 		function currencyFormat(number) {
@@ -247,8 +235,33 @@
 		}
 		
 		var usdFormatted = currencyFormat(usd);
+
+		//if else
+		if(sandwhiches == 1){
+			sid = sandwhiches + " <b>a Chick-Fil-A sandwhich.</b>";
+		} else if(sandwhiches > 1){
+			sid = "With <b>$" + usdFormatted + "</b> you can literally buy <b>" + sandwhiches + " Chick-Fil-A sandwhiches.</b>";
+		} else {
+			sid = "If you save up <b>$" + difference + "</b> more you can buy <b>a Chick-Fil-A sandwhich.</b>"; 
+		}
+
+		testA = "And when you do the math: ";
+		//------------
+		if(sandwhiches >= 1){
+			testB = "That's literally " + (sandwhiches * 28) + " grams of Protein you're throwing away in the trash.";
+		} else {
+			testB = "You're literally missing out on " + (28) + " grams of Protein.";
+		}
+
+		
+
+
 		var sid2 = currencyFormat(sid);
 		var testC = currencyFormat(testB);
+
+		var outPutMessage = sid;
+
+		//"With " + "$".bold() + usdFormatted.bold() + youCanBuy + sid2.bold() + " instead.";
 
 		//Here is the emoji counter
 			var text = "";
@@ -277,7 +290,7 @@
 		/*document.getElementById("sandwhichCount").innerHTML = "With " + "$".bold() + usd.bold() + youCanBuy + sid.bold() + " instead.";
 		document.getElementById("test").innerHTML = testA + (testB.bold()).fontcolor("red");*/
 
-		document.getElementById("sandwhichCount").innerHTML = "With " + "$".bold() + usdFormatted.bold() + youCanBuy + sid2.bold() + " instead.";
+		document.getElementById("sandwhichCount").innerHTML = outPutMessage;
 		document.getElementById("test").innerHTML = testA + (testC.bold()).fontcolor("red");
 	}
 		
