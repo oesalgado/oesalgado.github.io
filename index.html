@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<style>
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+</style>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div class="header">
+		<h1>Financial Decision Calculator</h1>
+		<h6>ver. 1.00</h6>
+
+		<p>This calculator is primarily made for college students looking to make a major financial decision and assesses whether or not it might be the most optimal choice.</p>
+
+	</div>
+
+	<div class="calculator">
+		<h3>Type in the amount of money you're looking to invest:</h3>
+
+		<label>$</label>
+		<input type="number" id="usd2Convert" placeholder="Enter amount in USD">
+
+		<button onclick="timedText()">Calculate Investment</button>
+		
+		<hr>
+
+		<div id="myBar"></div>
+		<p id="sandwhichCount"></p>
+		<p id="test"></p>
+
+		<script>
+			
+			function timedText() {
+			calculation()
+
+			// This is the progress bar
+			var progress = document.getElementById("myBar");
+			var width = 1;
+			var id = setInterval(frame, 10);
+			function frame() {
+				if (width >= 100) {
+					clearInterval(id);
+				} else {
+					width++;
+					progress.style.width = width + '%';
+				}
+			}
+
+			//setTimeout(calculation, 2000)
+			setTimeout(usd2Sandwhiches, 1000)
+				// body...
+			}
+
+			function calculation() {
+				document.getElementById("sandwhichCount").innerHTML = "We are calculating your result...";
+			}
+
+			function usd2Sandwhiches() {
+		var usd = document.getElementById("usd2Convert").value;
+		var sandwhiches = Math.floor(usd / 3.39);
+		var difference = (3.99 - usd);
+		var sid, testA;
+		var youCanBuy = " you can literally buy ";
+
+		//if else
+		if(sandwhiches == 1){
+			sid = sandwhiches + " a Chick-Fil-A sandwhich.";
+		} else if(sandwhiches > 1){
+			sid = sandwhiches + " Chick-Fil-A sandwhiches.";
+		} else {
+			sid = "If you save up $" + difference + " more you can buy a Chick-Fil-A sandwhich instead."; 
+		}
+
+		testA = (sandwhiches * 28) + " grams of Protein.";
+
+		document.getElementById("sandwhichCount").innerHTML = "With $" + usd + youCanBuy + sid;
+		document.getElementById("test").innerHTML = testA;
+	}
+		
+
+
+
+/*			function usd2Sandwhiches() {
+		var usd = document.getElementById("usd2Convert").value;
+		var sandwhiches = Math.floor(usd / 3.39);
+		var difference = (3.99 - usd);
+		var sid, testA;
+
+		//if else
+		if(sandwhiches == 1){
+			sid = sandwhiches + " sandwhich.";
+		} else if(sandwhiches > 1){
+			sid = sandwhiches + " sandwhiches.";
+		} else {
+			sid = "If you save up $" + difference + " more you can buy a Chick-Fil-A sandwhich instead."; 
+		}
+
+		testA = (sandwhiches * 28) + " grams of Protein.";
+
+		document.getElementById("sandwhichCount").innerHTML = sid;
+		document.getElementById("test").innerHTML = testA;
+	}*/
+		</script>
+
+	</div>
+
+	
+</body>
+</html>
