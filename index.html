@@ -15,11 +15,53 @@
     <meta name="description" content="Are you looking to make a major purchase or investment but not sure if it's a good long-term decision? This calculator assesses
     your situation to determine whether or not you're making the right choice."/>
 	<title>Should I Really Buy This? | Financial Decision Calculator</title>
+
+	  <link rel="shortcut icon" href="/images/logo.svg">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/logo.svg" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.svg">
+
 </head>
 
 <style type="text/css">
 
+/* NAV BAR */
 
+html {
+	font-family: objektiv-mk1, sans-serif; 
+}
+
+.navigation-bar {
+	text-align: right;
+    width: 100%;  /* i'm assuming full width */
+    height: 80px; /* change it to desired width */
+    background-color: transparent; /* change to desired color */
+    position: relative;
+}
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 15px;    /* if you want it vertically middle of the navbar. */
+}
+.navigation-bar > a {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    height: 40px;        /* if you want it to take the full height of the bar */
+    line-height: 80px;    /* if you want it vertically middle of the navbar */
+}
+
+ /* nav bar end*/
 
 .divider{
 	margin-top: 5%;
@@ -27,7 +69,7 @@
 	color: #f2f2f2;
 }
 
-.landing{
+.landing-a{
 	margin: 0 auto;
 	width: 80%;
 	max-width: 800px;
@@ -57,6 +99,9 @@
   width: 0%;
   height: 30px;
   background-color: #21ce99;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white; 
 }
 
 
@@ -153,12 +198,23 @@
 
 </style>
 
+
 <body>
 
-	<div class="landing">
 
-	<div class="header">
-		<h1>Financial Decision Calculator</h1>
+
+<!-- N A V B A R -->
+
+<nav class="navigation-bar">
+    <a href="about.html">About</a>
+</nav>
+
+
+
+	<div class="landing-a">
+
+	<div class="header-a">
+		<h1>Financial Risk Assessment Calculator</h1>
 		<div class="version">
 			<h6>ver. 1.02</h6>
 		</div>
@@ -168,15 +224,14 @@
 	</div>
 
 	<div class="calculator">
-		<h3>Type in the amount of money you're looking to spend/invest:</h3>
+		<h3>Type in an amount of money you're looking to spend/invest:</h3>
 
 		<!--<label>$</label>-->
 		<input class="currencyInput" type="number" required="required" data-type="currency" pattern="[0-9]*" id="usd2Convert" placeholder="Enter amount in USD">
 
 		<button class="inputButton" onclick="timedText()">Calculate Investment</button>
-		
-		<hr class="divider">
-
+	
+		<br><br>
 		<div id="myBar"></div>
 		<p id="sandwhichCount"></p>
 		<p id="emoji-counter"> </p>
@@ -219,7 +274,7 @@
 			}
 
 			function calculation() {
-				document.getElementById("sandwhichCount").innerHTML = "We are calculating your result...";
+				document.getElementById("sandwhichCount").innerHTML = "We are calculating your assessment..." ;
 			}
 
 			function usd2Sandwhiches() {
@@ -238,9 +293,9 @@
 
 		//if else
 		if(sandwhiches == 1){
-			sid = sandwhiches + " <b>a Chick-Fil-A sandwhich.</b>";
+			sid = "With <b>$" + usdFormatted + " </b>you can literally buy <b>a Chick-Fil-A sandwhich instead.</b>";
 		} else if(sandwhiches > 1){
-			sid = "With <b>$" + usdFormatted + "</b> you can literally buy <b>" + sandwhiches + " Chick-Fil-A sandwhiches.</b>";
+			sid = "With <b>$" + usdFormatted + "</b> you can literally buy <b>" + sandwhiches + " Chick-Fil-A sandwhiches instead.</b>";
 		} else {
 			sid = "If you save up <b>$" + difference + "</b> more you can buy <b>a Chick-Fil-A sandwhich.</b>"; 
 		}
